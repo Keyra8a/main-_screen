@@ -1,16 +1,24 @@
 package com.example.main_screen
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,8 +37,50 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Main_screenTheme {
-                LoginScreen()
+                Login()
             }
+        }
+    }
+}
+
+@Composable
+fun Login() {
+    var email by remember { mutableStateOf("") }
+    var password by remember {mutableStateOf(value = "")}
+
+    Box(modifier = Modifier.fillMaxSize().background(Color.White)) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = "Login!",
+                    fontSize = 60.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = "Sign In to your account",
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            TextField(
+                value = email,
+                onValueChange = { nuevaLetra ->
+                    email = nuevaLetra
+                },
+                label = { Text("E-Mail") },
+                modifier = Modifier.fillMaxWidth().padding(top = 20.dp)
+            )
+            TextField(
+                value = password,
+                onValueChange = { nuevaLetra ->
+                    password = nuevaLetra
+                },
+                label = {Text (text = "Password")},
+                modifier = Modifier.fillMaxWidth().padding(top = 20.dp)
+
+            )
         }
     }
 }
@@ -168,5 +218,6 @@ fun LoginScreen() {
 fun LoginScreenPreview() {
     Main_screenTheme {
         LoginScreen()
+        Login()
     }
 }
