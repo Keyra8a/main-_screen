@@ -12,8 +12,12 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
@@ -81,14 +85,11 @@ fun Login() {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
                 Text(
-                    text = "Login!",
+                    text = "Login",
                     fontSize = 50.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                    fontWeight = FontWeight.Bold,
 
-                Text(
-                    text = "Sign In to your account",
-                    fontWeight = FontWeight.Bold
+                    color = Color(0xFF5E4AE3)
                 )
             }
 
@@ -99,6 +100,7 @@ fun Login() {
                 value = email,
                 onValueChange = { email = it },
                 label = { Text("E-Mail") },
+                shape = RoundedCornerShape(50.dp),
 
                 leadingIcon = {
                     Icon(
@@ -131,6 +133,8 @@ fun Login() {
                 value = password,
                 onValueChange = { password = it },
                 label = { Text("Password") },
+
+                shape = RoundedCornerShape(50.dp),
 
                 leadingIcon = {
                     Icon(
@@ -257,8 +261,10 @@ fun Register() {
                 Text(
                     text = "Register",
                     fontSize = 50.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF5E4AE3)
                 )
+
             }
             Spacer(modifier = Modifier.height(30.dp))
 
@@ -267,6 +273,8 @@ fun Register() {
                 value = username,
                 onValueChange = { username = it },
                 label = { Text("User name") },
+
+                shape = RoundedCornerShape(50.dp),
 
                 leadingIcon = {
                     Icon(
@@ -287,9 +295,9 @@ fun Register() {
                     unfocusedTextColor = Color.Black
                 ),
 
-                modifier = Modifier
+                /*modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 20.dp)
+                    .padding(top = 20.dp)*/
             )
             Spacer(modifier = Modifier.height(30.dp))
 
@@ -298,6 +306,8 @@ fun Register() {
                 value = email,
                 onValueChange = { email = it },
                 label = { Text("E-Mail") },
+
+                shape = RoundedCornerShape(50.dp),
 
                 leadingIcon = {
                     Icon(
@@ -318,9 +328,9 @@ fun Register() {
                     unfocusedTextColor = Color.Black
                 ),
 
-                modifier = Modifier
+                /*modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 20.dp)
+                    .padding(top = 20.dp)*/
             )
             Spacer(modifier = Modifier.height(30.dp))
             // PASSWORD
@@ -329,6 +339,8 @@ fun Register() {
                 onValueChange = { password = it },
                 label = { Text("Password") },
 
+                shape = RoundedCornerShape(50.dp),
+
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Lock,
@@ -350,9 +362,9 @@ fun Register() {
                     unfocusedTextColor = Color.Black
                 ),
 
-                modifier = Modifier
+                /*modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 20.dp)
+                    .padding(top = 20.dp)*/
             )
 
             Spacer(modifier = Modifier.height(15.dp))
@@ -360,7 +372,9 @@ fun Register() {
             TextField(
                 value = repeatpassword,
                 onValueChange = { repeatpassword = it },
-                label = { Text("Password") },
+                label = { Text("Repeat password") },
+
+                shape = RoundedCornerShape(50.dp),
 
                 leadingIcon = {
                     Icon(
@@ -369,6 +383,7 @@ fun Register() {
                         tint = Color(0xFF5E4AE3)
                     )
                 },
+
 
 
                 colors = TextFieldDefaults.colors(
@@ -382,14 +397,47 @@ fun Register() {
                     unfocusedTextColor = Color.Black
                 ),
 
-                modifier = Modifier
+                /*modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 20.dp)
+                    .padding(top = 20.dp)*/
             )
 
             Spacer(modifier = Modifier.height(15.dp))
-
-
+            // BOTÓN register
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
+                    .background(
+                        color = Color(0xFF5E4AE3),
+                        shape = RoundedCornerShape(50.dp)
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Register",
+                    color = Color.White,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+            Spacer(modifier = Modifier.height(15.dp))
+            // BOTÓN regresar
+            Box(
+                modifier = Modifier
+                    .size(40.dp)
+                    .background(
+                        color = Color.White,
+                        shape = CircleShape
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Back",
+                    tint = Color.Black,
+                    modifier = Modifier.size(22.dp)
+                )
+            }
         }
     }
 }
