@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
@@ -40,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.main_screen.ui.theme.Main_screenTheme
+
 import java.util.function.IntConsumer
 
 
@@ -49,7 +51,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Main_screenTheme {
-                Login()
+                Register()
             }
         }
     }
@@ -231,7 +233,166 @@ fun Login() {
         }
     }
 }
+@Composable
+fun Register() {
+    var username by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var repeatpassword by remember { mutableStateOf("") }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White),
+        contentAlignment = Alignment.Center
+    ) {
 
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(30.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
+                Text(
+                    text = "Register",
+                    fontSize = 50.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Spacer(modifier = Modifier.height(30.dp))
+
+            // username
+            TextField(
+                value = username,
+                onValueChange = { username = it },
+                label = { Text("User name") },
+
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "User name",
+                        tint = Color(0xFF5E4AE3)
+                    )
+                },
+
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFFF4F3FF),
+                    unfocusedContainerColor = Color(0xFFF4F3FF),
+
+                    focusedIndicatorColor = Color(0xFF5E4AE3),
+                    unfocusedIndicatorColor = Color.Transparent,
+
+                    focusedTextColor = Color.Black,
+                    unfocusedTextColor = Color.Black
+                ),
+
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp)
+            )
+            Spacer(modifier = Modifier.height(30.dp))
+
+            // email
+            TextField(
+                value = email,
+                onValueChange = { email = it },
+                label = { Text("E-Mail") },
+
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Email,
+                        contentDescription = "email icon",
+                        tint = Color(0xFF5E4AE3)
+                    )
+                },
+
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFFF4F3FF),
+                    unfocusedContainerColor = Color(0xFFF4F3FF),
+
+                    focusedIndicatorColor = Color(0xFF5E4AE3),
+                    unfocusedIndicatorColor = Color.Transparent,
+
+                    focusedTextColor = Color.Black,
+                    unfocusedTextColor = Color.Black
+                ),
+
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp)
+            )
+            Spacer(modifier = Modifier.height(30.dp))
+            // PASSWORD
+            TextField(
+                value = password,
+                onValueChange = { password = it },
+                label = { Text("Password") },
+
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Lock,
+                        contentDescription = "password icon",
+                        tint = Color(0xFF5E4AE3)
+                    )
+                },
+
+
+
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFFF4F3FF),
+                    unfocusedContainerColor = Color(0xFFF4F3FF),
+
+                    focusedIndicatorColor = Color(0xFF5E4AE3),
+                    unfocusedIndicatorColor = Color.Transparent,
+
+                    focusedTextColor = Color.Black,
+                    unfocusedTextColor = Color.Black
+                ),
+
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(15.dp))
+            // PASSWORD
+            TextField(
+                value = repeatpassword,
+                onValueChange = { repeatpassword = it },
+                label = { Text("Password") },
+
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Lock,
+                        contentDescription = "password icon",
+                        tint = Color(0xFF5E4AE3)
+                    )
+                },
+
+
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFFF4F3FF),
+                    unfocusedContainerColor = Color(0xFFF4F3FF),
+
+                    focusedIndicatorColor = Color(0xFF5E4AE3),
+                    unfocusedIndicatorColor = Color.Transparent,
+
+                    focusedTextColor = Color.Black,
+                    unfocusedTextColor = Color.Black
+                ),
+
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(15.dp))
+
+
+        }
+    }
+}
 
 @Composable
 fun LoginScreen() {
@@ -367,5 +528,6 @@ fun LoginScreenPreview() {
     Main_screenTheme {
         LoginScreen()
         Login()
+        Register()
     }
 }
