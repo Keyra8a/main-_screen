@@ -44,6 +44,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.main_screen.components.ContactScreen
 import com.example.main_screen.navigation.AppNavigation
 import com.example.main_screen.ui.theme.Main_screenTheme
 
@@ -56,7 +57,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Main_screenTheme {
-                AppNavigation()
+                ContactScreen()
             }
         }
     }

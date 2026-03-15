@@ -52,12 +52,12 @@ fun WelcomeScreen(navController: NavHostController){
         ) {
 
             // IMAGEN SUPERIOR
-            Image(
+           /* Image(
                 painter = painterResource(id = R.drawable.imagen_principal),
                 contentDescription = "Imagen bienvenida",
                 modifier = Modifier
                     .height(350.dp)
-            )
+            )*/
 
             // TEXTO
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
